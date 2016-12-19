@@ -41,6 +41,8 @@ require('laravel-elixir-vue-2');
         'frontend/cal/libs/*.js'
         ], './public/js/frontend/cal/libs.js')
 
+    .webpack('frontend/cal/app.js', './public/js/frontend/cal/app.js')
+
 
     // Backend
     .scripts([

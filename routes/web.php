@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('frontend/index');
 });
 
-Route::get('/cal', function () {
+Route::get('/cal/', function () {
     return view('frontend/cal');
 });
 

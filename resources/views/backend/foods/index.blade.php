@@ -148,7 +148,7 @@
                                     <div class="col-sm-7">
                                         <div class="dataTables_paginate paging_simple_numbers"
                                              id="datatable-checkbox_paginate">
-                                            {!! $foods->appends('food')->render() !!}
+                                            {!! $foods->appends('foods')->render() !!}
                                         </div>
                                     </div>
                                 </div>
