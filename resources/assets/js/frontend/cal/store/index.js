@@ -7,28 +7,24 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+var selectedFoods = JSON.parse(localStorage.getItem('selectedFoods'));
 
 export default new Vuex.Store({
 
  state: {
-  'selectedFoods': [
-  {'id': 5, 'name': 'pizza'},
-  {'id': 9, 'name': 'oreo keksi'},
-  ],
-  'test': 'This is STORE test'
+  'selectedFoods': selectedFoods || [],
 },
 
 mutations: {
-  ADD_FOOD(state, todo){
-    state.selectedFoods.push(todo)
+  ADD_FOOD(state, food){
+    state.selectedFoods.push(food)
+    window.localStorage.setItem('selectedFoods', JSON.stringify(state.selectedFoods));
   },
   REMOVE_FOOD(state, food){
     var selectedFoods = state.selectedFoods
     state.selectedFoods = selectedFoods.filter(function(o) { return o.id !== food.id; });
-  },
-  GET_TEST(state, test){
-   state.test = test
- },
+    window.localStorage.setItem('selectedFoods', JSON.stringify(state.selectedFoods));
+  }
 },
 
 actions: {
@@ -37,17 +33,13 @@ actions: {
  },
  removeFood({commit}, food){
    commit('REMOVE_FOOD', food)
- },
- getTest({commit}, test){
-   commit('GET_TEST', test)
- },
+ }
 },
 
 getters: {
   selectedFoodsIds: state => {
     return _.map(state.selectedFoods, 'id');
-  },
-  testGetter: state => state.test,
+  }
 }
 
 });

@@ -16,7 +16,8 @@ class FoodTransformer extends Transformer {
             'title' => $item['title'],
             'code' => $item['code'],
             'description' => $item['description'],
-            'nutrients' => $item['nutrients']
+            'nutrients' => $item['nutrients'],
+            'category' => $item['category']
         );
 
         // if (isset($item['distance'])) {
