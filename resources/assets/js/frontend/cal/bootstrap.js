@@ -32,7 +32,7 @@ window._ = require('lodash');
 });
 
  // window.ApiURL = 'http://localhost:8000/'
- window.ApiURL = 'http://nutrical.org/api/'
+ window.ApiURL = 'http://nutrical.org/'
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

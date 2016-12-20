@@ -17,6 +17,6 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
 
-Route::group(['namespace' => 'Api', 'middleware' => 'cors'], function () {
+Route::group(['namespace' => 'Api', 'middleware' => 'throttle:120'], function () {
     Route::get('/foods', 'FoodsController@index')->name('api_foods');
 });
