@@ -41,6 +41,6 @@
 <script>
   export default {
     name: 'paginator',
-    props: ['items']
+    props: ['items', 'getFoods']
   }
 </script>

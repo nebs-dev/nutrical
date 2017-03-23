@@ -24,7 +24,7 @@ mutations: {
     var selectedFoods = state.selectedFoods
     state.selectedFoods = selectedFoods.filter(function(o) { return o.id !== food.id; });
     window.localStorage.setItem('selectedFoods', JSON.stringify(state.selectedFoods));
-  }
+  },
 },
 
 actions: {
@@ -33,12 +33,22 @@ actions: {
  },
  removeFood({commit}, food){
    commit('REMOVE_FOOD', food)
+ },
+
+ testMethod(){
+  return 666666
  }
 },
 
 getters: {
   selectedFoodsIds: state => {
     return _.map(state.selectedFoods, 'id');
+  },
+
+  testGetter: state => {
+    var nutrients = []
+    nutrients.protein = this.testMethod
+    return nutrients
   }
 }
 

@@ -16,7 +16,7 @@
             </div>
 
             <div class="form-group col-xs-3 col-md-3">
-              <div class="control-label">Filter Carbohydrate</div>
+              <div class="control-label">Filter Carbs</div>
               <select class="form-control" v-model="carbohydrateFilter" v-on:change="getFoods()">
                 <option value="" >Choose option</option>
                 <option value="high">High</option>
@@ -121,11 +121,11 @@
                       </td>
                       <td class=" ">{{ food.title }}</td>
                       <td class=" ">{{ food.category.title }}</td>
-                      <td class=" ">121000210 <i class="success fa fa-long-arrow-up"></i></td>
-                      <td class=" ">John Blank L</td>
-                      <td class=" ">Paid</td>
-                      <td class="a-right a-right ">$7.45</td>
-                      <td class="a-right a-right ">$7.45</td>
+                      <td class=" ">{{ getNutrientValue(food.nutrients, 'Energy') }}</td>
+                      <td class=" ">{{ getNutrientValue(food.nutrients, 'Protein') }}</td>
+                      <td class=" ">{{ getNutrientValue(food.nutrients, 'Carbohydrate, by difference') }}</td>
+                      <td class=" ">{{ getNutrientValue(food.nutrients, 'Total lipid (fat)') }}</td>
+                      <td class=" ">{{ getNutrientValue(food.nutrients, 'Sugars, total') }}</td>
                       <td class=" last"><a href="#">View</a>
                       </td>
                     </tr>
@@ -133,7 +133,7 @@
                 </table>
               </div>
 
-              <paginator :items="foods"></paginator>
+              <paginator :items="foods" :getFoods="getFoods"></paginator>
 
             </div>
           </div>
@@ -217,8 +217,17 @@
         if (this.selectedIDs.includes(food.id)) {
           this.$store.dispatch('removeFood', food)
         } else {
+          this.$set(food, 'value', 100)
           this.$store.dispatch('addFood', food)
         }
+      },
+
+      getNutrientValue(nutrients, title) {
+        var nutrient = _.filter(nutrients, function(nutrient){
+          return nutrient['title'] == title;
+        });
+
+        return nutrient[0].pivot.value;
       }
     }
 

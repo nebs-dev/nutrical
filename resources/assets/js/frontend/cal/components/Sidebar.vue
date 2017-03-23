@@ -35,7 +35,6 @@
         <div role="separator" class="divider"></div>
 
         <div class="menu_section">
-
           <sidebar-calculator></sidebar-calculator>
         </div>
 

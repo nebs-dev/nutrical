@@ -89,19 +89,33 @@
               </li>
             </ul>
           </li>
+
+          <li>
+            <!-- <a href="javascript:;" class="dropdown-toggle">
+              <button @click="showModal = true" class="btn btn-danger">Calculator</button>
+            </a> -->
+            <router-link to="/calculator" class="dropdown-toggle">
+              <button class="btn btn-danger">Calculator</button>
+            </router-link>
+          </li>
         </ul>
       </nav>
     </div>
+
+    <!-- <modal-calculator v-show="showModal" @close="showModal = false"></modal-calculator> -->
   </div>
 </template>
 
 
 <script>
-  export default {
-    data() {
-        return {
+  import ModalCalculator from './ModalCalculator.vue';
 
-        }
-    }
+  export default {
+    // components: { ModalCalculator },
+    // data() {
+    //   return {
+    //     showModal: false
+    //   }
+    // }
   }
 </script>

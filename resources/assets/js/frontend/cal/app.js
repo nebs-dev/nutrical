@@ -19,11 +19,18 @@
  import Navbar from './components/Navbar.vue';
  import Home from './components/Home.vue';
  import Profile from './components/Profile.vue';
+ import MainCalculator from './components/MainCalculator.vue';
 
 
- const routes = [
- { path: '/', components: {
+const routes = [
+{ path: '/', components: {
   default: Home,
+  sidebar: Sidebar,
+  navbar: Navbar,
+} },
+
+{ path: '/calculator', components: {
+  default: MainCalculator,
   sidebar: Sidebar,
   navbar: Navbar,
 } },
